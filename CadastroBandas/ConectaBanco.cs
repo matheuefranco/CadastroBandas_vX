@@ -13,7 +13,7 @@ namespace CadastroBandas
         MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;password=compServer;database=banco_bandas");
         public string mensagem;
 
-        public DataTable lista()
+        public DataTable listaBandas()
         {
             MySqlCommand cmd = new MySqlCommand("listaBandas", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -36,5 +36,34 @@ namespace CadastroBandas
             }
 
         }// fim lista
+//------------------------------------------------------
+    public bool insereBanda(Banda b)
+     {
+            MySqlCommand cmd = new MySqlCommand("insereBanda", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("nome", b.Nome);
+            cmd.Parameters.AddWithValue("genero", b.Genero);
+            cmd.Parameters.AddWithValue("integrantes", b.Integrantes);
+            cmd.Parameters.AddWithValue("ranking", b.Ranking);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException erro)
+            {
+                mensagem = "Erro Mysql " + erro.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+        }// fim insereBanda
+
+
     }
 }

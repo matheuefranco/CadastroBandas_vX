@@ -57,18 +57,31 @@ namespace CadastroBandas
 
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
         {
-
+            Banda b = new Banda();
+            b.Nome = txtnome.Text;
+            b.Genero = txtgenero.Text;
+            b.Integrantes = Convert.ToInt32(txtintegrantes.Text);
+            b.Ranking = Convert.ToInt32(txtranking.Text);
+            ConectaBanco con = new ConectaBanco();
+            bool r = con.insereBanda(b);
+            if (r == true)
+                MessageBox.Show("Inserido com sucesso :)");
+            else
+                MessageBox.Show("Erro:" + con.mensagem);
+            
+            listaBandas();
+            limpaForm();
         }
 
         void limpaForm()
         {
-           
+           //?
         }
 
         void listaBandas()
         {
             ConectaBanco con = new ConectaBanco();
-            dgBandas.DataSource = con.lista();
+            dgBandas.DataSource = con.listaBandas();
             dgBandas.Columns["idbandas"].Visible = false;
         }
 
