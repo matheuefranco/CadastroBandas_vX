@@ -75,14 +75,19 @@ namespace CadastroBandas
 
         void limpaForm()
         {
-           //?
+            txtnome.Clear();
+            txtgenero.Clear();
+            txtintegrantes.Clear();
+            txtranking.Clear();
+            txtnome.Focus();
         }
 
         void listaBandas()
         {
-            ConectaBanco con = new ConectaBanco();
+            ConectaBanco con = new ConectaBanco();      
             dgBandas.DataSource = con.listaBandas();
             dgBandas.Columns["idbandas"].Visible = false;
+
         }
 
 
