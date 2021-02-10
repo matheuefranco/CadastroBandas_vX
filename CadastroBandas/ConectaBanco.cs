@@ -64,6 +64,31 @@ namespace CadastroBandas
 
         }// fim insereBanda
 
+        //------------------------------------------------------
+       public bool deletaBanda(int id)
+        {
+            MySqlCommand cmd = new MySqlCommand("deletaBanda", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idremove", id);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException erro)
+            {
+                mensagem = "Erro Mysql " + erro.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+        }// fim deletaBanda
+
 
     }
 }

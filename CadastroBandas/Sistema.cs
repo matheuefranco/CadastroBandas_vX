@@ -52,7 +52,19 @@ namespace CadastroBandas
 
         private void btnConfirmaRemocao_Click(object sender, EventArgs e)
         {
-           
+            
+            int linha = dgBandas.CurrentRow.Index;
+            int id = 
+                Convert.ToInt32(dgBandas.Rows[linha].Cells["idbandas"]
+                                .Value.ToString());
+            ConectaBanco con = new ConectaBanco();
+            bool retorno = con.deletaBanda(id);
+            if (retorno)
+                MessageBox.Show("Banda excluída com sucesso :)");
+            else
+                MessageBox.Show("Erro:", con.mensagem);
+
+            listaBandas();
         }
 
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
@@ -98,7 +110,8 @@ namespace CadastroBandas
 
         private void txtnomeBusca_TextChanged(object sender, EventArgs e)
         {
-
+            (dgBandas.DataSource as DataTable).DefaultView.RowFilter =
+                string.Format("nome like '%{0}%'", txtnomeBusca.Text);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
