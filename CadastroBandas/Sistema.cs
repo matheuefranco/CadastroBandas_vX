@@ -13,7 +13,8 @@ namespace CadastroBandas
 {
     public partial class Sistema : Form
     {
-        
+
+        int idalterar;
 
         public Sistema()
         {
@@ -57,14 +58,18 @@ namespace CadastroBandas
             int id = 
                 Convert.ToInt32(dgBandas.Rows[linha].Cells["idbandas"]
                                 .Value.ToString());
-            ConectaBanco con = new ConectaBanco();
-            bool retorno = con.deletaBanda(id);
-            if (retorno)
-                MessageBox.Show("Banda excluída com sucesso :)");
-            else
-                MessageBox.Show("Erro:", con.mensagem);
+            DialogResult resp = MessageBox.Show("Tem certeza da exclusão?",
+                "Remover", MessageBoxButtons.OKCancel);
+            if(resp == DialogResult.OK) { 
+                ConectaBanco con = new ConectaBanco();
+                bool retorno = con.deletaBanda(id);
+                if (retorno)
+                    MessageBox.Show("Banda excluída com sucesso :)");
+                else
+                    MessageBox.Show("Erro:", con.mensagem);
 
-            listaBandas();
+                listaBandas();
+            }// fim if confirmação
         }
 
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
@@ -116,7 +121,25 @@ namespace CadastroBandas
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            
+            int linha = dgBandas.CurrentRow.Index;
+            idalterar =
+                Convert.ToInt32(dgBandas.Rows[linha].Cells["idbandas"]
+                                .Value.ToString());
+            txtAlteraNome.Text = dgBandas.Rows[linha].Cells["nome"].Value.ToString();
+            txtAlteraGenero.Text = dgBandas.Rows[linha].Cells["genero"].Value.ToString();
+            txtAlteraIntegrantes.Text = dgBandas.Rows[linha].Cells["integrantes"].Value.ToString();
+            txtAlteraRanking.Text = dgBandas.Rows[linha].Cells["ranking"].Value.ToString();
+            tabControl1.SelectedTab = tabAlterar;
+        }
+
+        private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
+        {
+            Banda b = new Banda();
+            b.Nome = txtAlteraNome.Text;
+            b.Genero = txtAlteraGenero.Text;
+            b.Integrantes = Convert.ToInt32(txtAlteraIntegrantes.Text);
+            b.Ranking = Convert.ToInt32(txtAlteraRanking.Text);
+            // alteraBanda(b,idalterar)
         }
     }
 }

@@ -55,7 +55,7 @@
             this.btnConfirmaRemocao = new System.Windows.Forms.Button();
             this.txtnomeBusca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbAlterar = new System.Windows.Forms.TabPage();
+            this.tabAlterar = new System.Windows.Forms.TabPage();
             this.txtAlteraRanking = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnConfirmaAlteracao = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             this.tabCadastrar.SuspendLayout();
             this.tabBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBandas)).BeginInit();
-            this.tbAlterar.SuspendLayout();
+            this.tabAlterar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -194,7 +194,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabCadastrar);
             this.tabControl1.Controls.Add(this.tabBuscar);
-            this.tabControl1.Controls.Add(this.tbAlterar);
+            this.tabControl1.Controls.Add(this.tabAlterar);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(203, 193);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -407,24 +407,24 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Nome:";
             // 
-            // tbAlterar
+            // tabAlterar
             // 
-            this.tbAlterar.Controls.Add(this.txtAlteraRanking);
-            this.tbAlterar.Controls.Add(this.label7);
-            this.tbAlterar.Controls.Add(this.btnConfirmaAlteracao);
-            this.tbAlterar.Controls.Add(this.txtAlteraIntegrantes);
-            this.tbAlterar.Controls.Add(this.txtAlteraGenero);
-            this.tbAlterar.Controls.Add(this.txtAlteraNome);
-            this.tbAlterar.Controls.Add(this.label8);
-            this.tbAlterar.Controls.Add(this.label9);
-            this.tbAlterar.Controls.Add(this.label10);
-            this.tbAlterar.Location = new System.Drawing.Point(4, 30);
-            this.tbAlterar.Name = "tbAlterar";
-            this.tbAlterar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAlterar.Size = new System.Drawing.Size(892, 308);
-            this.tbAlterar.TabIndex = 2;
-            this.tbAlterar.Text = "Alterar";
-            this.tbAlterar.UseVisualStyleBackColor = true;
+            this.tabAlterar.Controls.Add(this.txtAlteraRanking);
+            this.tabAlterar.Controls.Add(this.label7);
+            this.tabAlterar.Controls.Add(this.btnConfirmaAlteracao);
+            this.tabAlterar.Controls.Add(this.txtAlteraIntegrantes);
+            this.tabAlterar.Controls.Add(this.txtAlteraGenero);
+            this.tabAlterar.Controls.Add(this.txtAlteraNome);
+            this.tabAlterar.Controls.Add(this.label8);
+            this.tabAlterar.Controls.Add(this.label9);
+            this.tabAlterar.Controls.Add(this.label10);
+            this.tabAlterar.Location = new System.Drawing.Point(4, 30);
+            this.tabAlterar.Name = "tabAlterar";
+            this.tabAlterar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAlterar.Size = new System.Drawing.Size(892, 308);
+            this.tabAlterar.TabIndex = 2;
+            this.tabAlterar.Text = "Alterar";
+            this.tabAlterar.UseVisualStyleBackColor = true;
             // 
             // txtAlteraRanking
             // 
@@ -455,12 +455,13 @@
             this.btnConfirmaAlteracao.Location = new System.Drawing.Point(389, 231);
             this.btnConfirmaAlteracao.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmaAlteracao.Name = "btnConfirmaAlteracao";
-            this.btnConfirmaAlteracao.Size = new System.Drawing.Size(175, 60);
+            this.btnConfirmaAlteracao.Size = new System.Drawing.Size(130, 60);
             this.btnConfirmaAlteracao.TabIndex = 22;
             this.btnConfirmaAlteracao.Text = "Confirmar Alteração";
             this.btnConfirmaAlteracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfirmaAlteracao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirmaAlteracao.UseVisualStyleBackColor = true;
+            this.btnConfirmaAlteracao.Click += new System.EventHandler(this.btnConfirmaAlteracao_Click);
             // 
             // txtAlteraIntegrantes
             // 
@@ -570,8 +571,8 @@
             this.tabBuscar.ResumeLayout(false);
             this.tabBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBandas)).EndInit();
-            this.tbAlterar.ResumeLayout(false);
-            this.tbAlterar.PerformLayout();
+            this.tabAlterar.ResumeLayout(false);
+            this.tabAlterar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -604,7 +605,7 @@
         private System.Windows.Forms.TextBox txtranking;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgBandas;
-        private System.Windows.Forms.TabPage tbAlterar;
+        private System.Windows.Forms.TabPage tabAlterar;
         private System.Windows.Forms.TextBox txtAlteraRanking;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnConfirmaAlteracao;
